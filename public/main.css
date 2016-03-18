@@ -1,0 +1,25 @@
+body {
+    padding: 1rem;
+}
+
+button {
+    padding: 0.5rem;
+    background-color: whitesmoke;
+    border: 1px solid lightgrey;
+    border-radius: 8px;
+    transition-duration: 0.5s;
+}
+
+button:hover {
+    background-color: lightgrey;
+    border: 1px solid grey;
+}
+
+.disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+h1 {
+    font-size: 200%;
+}
