@@ -15,11 +15,28 @@ button:hover {
     border: 1px solid grey;
 }
 
-.disabled {
-    opacity: 0.6;
+button:disabled {
+    opacity: 0.3;
     cursor: not-allowed;
 }
 
 h1 {
     font-size: 200%;
+}
+
+hr {
+    clear: left;
+    border : 1px solid grey;
+}
+
+.new-line {
+    clear: left;
+}
+
+#game-table {
+    margin:1rem;
+    padding: 1rem;
+    border: black 0.5rem solid;
+    border-radius: 1rem;
+    background-color: forestgreen;
 }

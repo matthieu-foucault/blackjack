@@ -6,7 +6,7 @@
     font-size: 100%;
     vertical-align: baseline;
     color: black;
-    background-color: white;
+    background-color: inherit;
 }
 
 button::-moz-focus-inner,

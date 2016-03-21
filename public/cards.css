@@ -2,7 +2,8 @@
     width: 79px;
     height: 123px;
     background: url(cards.png) no-repeat 0 0 ;
-
+    margin: 1rem;
+    float: left;
 }
 
 .back {
