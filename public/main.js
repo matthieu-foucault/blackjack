@@ -3,17 +3,17 @@ var ace = 'A';
 var cardColors = ['clubs', 'diamonds', 'hearts', 'spades'];
 
 function newDeck() {
-    var _deck = [];
+    var deck = [];
     for (var colIdx = 0; colIdx < cardColors.length; colIdx++) {
         for (var i = 2; i <= 10; i++) {
-            _deck.push({color: cardColors[colIdx], value: i.toString(), intValue: i});
+            deck.push({color: cardColors[colIdx], value: i.toString(), intValue: i});
         }
         for (var faceIdx = 0; faceIdx < facesCards.length; faceIdx++) {
-            _deck.push({color: cardColors[colIdx], value: facesCards[faceIdx], intValue:10});
+            deck.push({color: cardColors[colIdx], value: facesCards[faceIdx], intValue:10});
         }
-        _deck.push({color: cardColors[colIdx], value: ace, intValue:1});
+        deck.push({color: cardColors[colIdx], value: ace, intValue:1});
     }
-    return _deck;
+    return deck;
 }
 
 function newShoe(numDecks) {
@@ -95,6 +95,8 @@ function startRound() {
     document.getElementById('btn-new-round').disabled = true;
     document.getElementById('btn-hit').disabled = false;
     document.getElementById('btn-stand').disabled = false;
+    document.getElementById('result').hidden = true;
+
     player1.init();
     dealer.init();
     clearCards(document.getElementById(player1.cardsDiv));
@@ -112,14 +114,17 @@ function stand() {
     for (var i = 0; i < dealer.cards.length; i++) {
         addCard(document.getElementById(dealer.cardsDiv), dealer.cards[i], true);
     }
-    while (dealer.score < player1.score && dealer.score < 21) {
-        hit(dealer, true);
+    if (player1.score < 21 || (player1.score == 21 && player1.cards.length > 2)) {
+        while (dealer.score < player1.score && dealer.score < 21) {
+            hit(dealer, true);
+        }
     }
-    if (dealer.score > player1.score && dealer.score < 21) {
+    if (dealer.score > player1.score && dealer.score <= 21) {
         dealer.win();
     } else if (dealer.score == player1.score) {
         dealer.draw();
-    }
+    } else
+        dealer.lose();
 }
 
 var shoe = newShoe(8);
@@ -132,17 +137,19 @@ player1 = {
     cardsDiv: 'player-cards',
     scoreSpan: 'player-score-span',
     blackjack: function () {
-        alert('Blackjack!!');
         stand();
     },
     win: function () {
-        alert('You win!');
+        document.getElementById('result-message').innerHTML = 'You win!';
+        document.getElementById('result').hidden = false;
     },
     draw: function () {
-        alert("It's a draw");
+        document.getElementById('result-message').innerHTML = "It's a tie.";
+        document.getElementById('result').hidden = false;
     },
     lose: function() {
-        alert('You lose!');
+        document.getElementById('result-message').innerHTML = 'You lose :(';
+        document.getElementById('result').hidden = false;
     }
 };
 

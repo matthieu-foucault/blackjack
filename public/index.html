@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Twenty-one</title>
-    <link type="text/css" href="reset.css" rel="stylesheet">
+    <link type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.0.0/normalize.min.css" rel="stylesheet">
     <link type="text/css" href="main.css" rel="stylesheet">
     <link type="text/css" href="cards.css" rel="stylesheet">
 </head>
@@ -14,21 +14,22 @@
     <div id="game-table">
         <div id="dealer-area">
             <div id="dealer-cards" class="new-line"></div>
-            <div id="dealer-score">
-                Score: <span id="dealer-score-span">0</span>
-            </div>
         </div>
         <hr>
         <div id="player-area">
             <div id="player-cards" class="new-line"></div>
-            <div id="player-wager" class="new-line"></div>
-            <div id="player-chips"></div>
-            <div id="player-score">
+            <div id="player-score" class="new-line">
                 Score: <span id="player-score-span">0</span>
             </div>
-            <button id="btn-hit" class="new-line" title="Take another card">Hit</button>
-            <button id="btn-stand" title="End your turn">Stand</button>
-            <button id="btn-new-round">New round</button>
+            <div id="result">
+                Dealer score: <span id="dealer-score-span">0</span>
+                <div id="result-message"></div>
+            </div>
+            <div class="new-line">
+                <button id="btn-hit" title="Take another card">Hit</button>
+                <button id="btn-stand" title="End your turn">Stand</button>
+                <button id="btn-new-round">New round</button>
+            </div>
         </div>
     </div>
     <script type="text/javascript" src="main.js"></script>

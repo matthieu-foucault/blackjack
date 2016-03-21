@@ -1,9 +1,9 @@
 body {
-    padding: 1rem;
+    padding: 1em;
 }
 
 button {
-    padding: 0.5rem;
+    padding: 10px;
     background-color: whitesmoke;
     border: 1px solid lightgrey;
     border-radius: 8px;
@@ -34,9 +34,10 @@ hr {
 }
 
 #game-table {
-    margin:1rem;
-    padding: 1rem;
-    border: black 0.5rem solid;
-    border-radius: 1rem;
+    margin:1em;
+    padding: 1em;
+    display: inline-block;
+    border: black 5px solid;
+    border-radius: 10px;
     background-color: forestgreen;
 }
